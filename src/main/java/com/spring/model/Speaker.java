@@ -1,4 +1,4 @@
-package com.pluralsight.model;
+package com.spring.model;
 
 public class Speaker {
     private String firstName;
