@@ -3,9 +3,13 @@ package com.spring.service;
 import com.spring.model.Speaker;
 import com.spring.repository.SpeakerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service("speakerService")
 public class SpeakerServiceImpl implements SpeakerService {
 
     private SpeakerRepository speakerRepository;
@@ -15,17 +19,18 @@ public class SpeakerServiceImpl implements SpeakerService {
         this.speakerRepository = speakerRepository;
     }
 
-//    public SpeakerServiceImpl(SpeakerRepository speakerRepository) {
-//        System.out.println("SpeakerServiceImpl repository constructor");
-//        this.speakerRepository = speakerRepository;
-//    }
+    @Autowired
+    public SpeakerServiceImpl(SpeakerRepository speakerRepository) {
+        System.out.println("SpeakerServiceImpl repository constructor");
+        this.speakerRepository = speakerRepository;
+    }
 
     @Override
     public List<Speaker> findAll(){
         return speakerRepository.findAll();
     }
 
-    @Autowired
+//    @Autowired
     public void setSpeakerRepository(SpeakerRepository speakerRepository) {
         System.out.println("SpeakerServiceImpl setter");
         this.speakerRepository = speakerRepository;
