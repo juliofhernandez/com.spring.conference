@@ -9,12 +9,8 @@ public class Application {
 //        First Instance
         SpeakerService speakerService=applicationContext.getBean("speakerService",SpeakerService.class);
         System.out.println(speakerService);
-
-//        getFirstName()
         System.out.println(speakerService.findAll().get(0).getFirstName());
+        System.out.println(speakerService.findAll().get(0).getSeedNum());
 
-//        Second Instance
-        SpeakerService speakerService2=applicationContext.getBean("speakerService",SpeakerService.class);
-        System.out.println(speakerService2);
     }
 }
